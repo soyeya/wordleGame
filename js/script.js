@@ -19,35 +19,22 @@ let answer = [
     {
       letter : "plate",
       info : "음식을 담기 위해 쓰이는 도구",
-    },
+    }
+
 ];
-
-console.log(answer[0].letter[0]);
-
 
 const pieceWrap = document.getElementById("pieceWrap");
 const wordleInfo = document.querySelector(".wordInfo p");
 const value_box =  pieceWrap.getElementsByTagName("input");
+const wordBox = document.querySelectorAll(".pieceBox");
 
-const disabled_box = () => {
+wordBox[1].classList.add("close");
+wordBox[2].classList.add("close");
+wordBox[3].classList.add("close");
+wordBox[4].classList.add("close");
 
-for(let i = 0; i < value_box.length; i++){
 
-    value_box[i].setAttribute("disabled" , true);
-    
-};
-
-};
-
-// function value_abled() {
-
-//     for(let i = 0; i < value_box.length; i++){
-
-//         value_box[i].setAttribute("disabled" , false);
-        
-//     };
-// };
-
+var countScore1 = [];
 
 const pieceComponent1 = () => {
 
@@ -55,40 +42,99 @@ const pieceComponent1 = () => {
 
     for(let i = 0; i < question1.length; i++){
 
-        if(question1[i].value == answer[0].letter || question1[i].value == answer[0].letter[i]){
+        countScore1.push(question1[i].value);
 
-                question1[i].style.background = "green";
+        if(question1[i].value  == answer[0].letter[i]){
 
-            }else if(answer[0].letter.includes(question1[i].value)){
+                question1[i].classList.add("green");
+                question1[i].classList.remove("yellow");
+                question1[i].classList.remove("gray");
+            
+            }else if(answer[0].letter.includes(question1[i].value || answer[0].letter.indexOf(question1[i].value) != -1)){
 
-                question1[i].style.background = 'yellow';
+                question1[i].classList.add("yellow");
+                question1[i].classList.remove("green");
+                question1[i].classList.remove("gray");
 
             }else{
-                question1[i].style.background = "lightgray";
+                question1[i].classList.add("gray");
+                question1[i].classList.remove("green");
+                question1[i].classList.remove("yellow");
             }
-};
+
+        };
+
+        var plus_result = countScore1.join("");
+        console.log(plus_result);
+        const result1 = plus_result.match("adult");
+
+            if(result1 != null){
+
+                    wordBox[0].classList.add("success");
+                    wordBox[1].classList.remove("close");
+                    pieceComponent2();
+            
+                }else{
+
+                    return;
+                };
+
+            
+            
 
 };
+
+var countScore2 = [];
+
 const pieceComponent2 = () => {
 
     let question2 = document.querySelectorAll(".piece2");
 
     for(let i = 0; i < question2.length; i++){
 
-        if(question2[i].value == answer[1].letter || question2[i].value == answer[1].letter[i]){
+        countScore2.push(question2[i].value);
+   
+         if(question2[i].value == answer[1].letter[i]){
 
-                question2[i].style.background = "green";
+                question2[i].classList.add("green");
+                question2[i].classList.remove("yellow");
+                question2[i].classList.remove("gray");
+            
+            }else if(answer[1].letter.includes(question2[i].value || answer[1].letter.indexOf(question2[i].value) != -1)){
 
-            }else if(answer[1].letter.includes(question2[i].value)){
-
-                question2[i].style.background = 'yellow';
+                question2[i].classList.add("yellow");
+                question2[i].classList.remove("green");
+                question2[i].classList.remove("gray");
 
             }else{
-                question2[i].style.background = "lightgray";
+
+                question2[i].classList.add("gray");
+                question2[i].classList.remove("green");
+                question2[i].classList.remove("yellow");
+
             }
-};
+        };
+
+        var plus_result2 = countScore2.join("");
+        console.log(plus_result2);
+        const result2 = plus_result2.match("cloth");
+        console.log(result2);
+
+            if(result2 != null){
+    
+                    wordBox[1].classList.add("success");
+                    wordBox[2].classList.remove("close");
+                    pieceComponent3();
+    
+                }else{
+
+                    return;
+                };
+          
 
 };
+
+var countScore3 = [];
 
 const pieceComponent3 = () => {
 
@@ -96,20 +142,46 @@ const pieceComponent3 = () => {
 
     for(let i = 0; i < question3.length; i++){
 
-        if(question3[i].value == answer[2].letter || question3[i].value == answer[2].letter[i]){
+        countScore3.push(question3[i].value);
 
-                question3[i].style.background = "green";
+        if(question3[i].value == answer[2].letter[i]){
 
-            }else if(answer[2].letter.includes(question3[i].value)){
+                question3[i].classList.add("green");
+                question3[i].classList.remove("yellow");
+                question3[i].classList.remove("gray");
+            
+            }else if(answer[2].letter.includes(question3[i].value || answer[2].letter.indexOf(question3[i].value) != -1)){
 
-                question3[i].style.background = 'yellow';
+                question3[i].classList.add("yellow");
+                question3[i].classList.remove("green");
+                question3[i].classList.remove("gray");
 
             }else{
-                question3[i].style.background = "lightgray";
+                question3[i].classList.add("gray");
+                question3[i].classList.remove("green");
+                question3[i].classList.remove("yellow");
             }
-};
+
+        };
+
+        var plus_result3 = countScore3.join("");
+        console.log(plus_result3);
+        const result3 = plus_result3.match("world");
+
+            if(result3 != null){
+
+                    wordBox[2].classList.add("success");
+                    wordBox[3].classList.remove("close");   
+                    pieceComponent4();
+                
+                }else{
+
+                    return;
+                };
 
 };
+
+var countScore4 = [];
 
 const pieceComponent4 = () => {
 
@@ -117,20 +189,49 @@ const pieceComponent4 = () => {
 
     for(let i = 0; i < question4.length; i++){
 
-        if(question4[i].value == answer[3].letter || question4[i].value == answer[3].letter[i]){
+        countScore4.push(question4[i].value);
 
-                question4[i].style.background = "green";
+        if(question4[i].value == answer[3].letter[i]){
 
-            }else if(answer[3].letter.includes(question4[i].value)){
+                question4[i].classList.add("green");
+                question4[i].classList.remove("yellow");
+                question4[i].classList.remove("gray");
+            
+            }else if(answer[3].letter.includes(question4[i].value || answer[3].letter.indexOf(question4[i].value) != -1)){
 
-                question4[i].style.background = 'yellow';
+                question4[i].classList.add("yellow");
+                question4[i].classList.remove("green");
+                question4[i].classList.remove("gray");
 
             }else{
-                question4[i].style.background = "lightgray";
+                question4[i].classList.add("gray");
+                question4[i].classList.remove("green");
+                question4[i].classList.remove("yellow");
             }
-};
+
+        };
+
+        var plus_result4 = countScore4.join("");
+        console.log(plus_result4);
+        const result4 = plus_result4.match("music");
+        console.log(result4);
+
+            if(result4 != null){
+
+                    wordBox[3].classList.add("success");
+                    wordBox[4].classList.remove("close");
+                    pieceComponent5();
+
+                }else{
+
+                    return;
+                };
+          
 
 };
+
+
+var countScore5 = [];
 
 const pieceComponent5 = () => {
 
@@ -138,173 +239,87 @@ const pieceComponent5 = () => {
 
     for(let i = 0; i < question5.length; i++){
 
-        if(question5[i].value == answer[4].letter || question5[i].value == answer[4].letter[i]){
+        countScore5.push(question5[i].value);
 
-                question5[i].style.background = "green";
+        if(question5[i].value == answer[4].letter[i]){
 
-            }else if(answer[4].letter.includes(question5[i].value)){
+                question5[i].classList.add("green");
+                question5[i].classList.remove("yellow");
+                question5[i].classList.remove("gray");
+            
+            }else if(answer[4].letter.includes(question5[i].value || answer[4].letter.indexOf(question5[i].value) != -1)){
 
-                question5[i].style.background = 'yellow';
+                question5[i].classList.add("yellow");
+                question5[i].classList.remove("green");
+                question5[i].classList.remove("gray");
 
             }else{
-                question5[i].style.background = "lightgray";
+                question5[i].classList.add("gray");
+                question5[i].classList.remove("green");
+                question5[i].classList.remove("yellow");
             }
-};
+
+        };
+
+        var plus_result5 = countScore5.join("");
+        console.log(plus_result5);
+        const result5 = plus_result5.match("plate");
+
+            if(result5 != null){
+
+                    wordBox[4].classList.add("success");
+
+                }else{
+
+                    return;
+                };
+          
 
 };
-
 
 
 const wordelSubmit = document.getElementById("answer");
 const wordelStartBtn = document.getElementById("startBtn");
-const wordBox1 = document.querySelectorAll(".pieceBox");
 
-wordelSubmit.addEventListener("click" , function(){
 
-        if(wordleInfo.getAttribute("id", "InfoBox0")){
-
-            pieceComponent1();
-
-        }else if(wordleInfo.getAttribute("id","InfoBox1")){
-
-            pieceComponent2();
-
-        }else if(wordleInfo.getAttribute("id","InfoBox2")){
-
-            pieceComponent3();
-
-        }else if(wordleInfo.getAttribute("id","InfoBox3")){
-
-            pieceComponent4();
-
-        }else if(wordleInfo.getAttribute("id","InfoBox4")){
-
-            pieceComponent5();
-
-        }else{
-
-        }
-
-});
 
 wordelStartBtn.addEventListener("click" , function(){
 
-    wordelStartBtn.innerHTML = `Reset`;
-    wordleInfo.innerHTML = "Choose Spot";
-    add();
- 
+    wordleInfo.innerHTML = 'Click the Blank';
+    this.classList.add("start");
+    playWordle();
+    worlde_submit();
+
 });
 
-let wordleRandom = Math.floor(Math.random() * 5);
-console.log(wordleRandom)
+function worlde_submit(){
 
 
-const disabled_list1 = () => {
+wordelSubmit.addEventListener("click" , function(){
 
-    for(let i = 0; i < answer.length; i++){
+    pieceComponent1();
 
-    let piece_disabled1 = document.querySelectorAll(`.piece-container1 input`);
 
-    piece_disabled1[i].setAttribute("disabled" , false);
-
-    }
+});
 
 };
 
-const disabled_list2 = () => {
+function playWordle(){
 
-    for(let i = 0; i < answer.length; i++){
+for(let i = 0; i < wordBox.length; i++){
 
-    let piece_disabled2 = document.querySelectorAll(`.piece-container2 input`);
+    wordBox[i].addEventListener("click" , function(){
 
-    piece_disabled2[i].setAttribute("disabled" , false);
+        wordleInfo.innerHTML = answer[i].info;
 
-    }
+        if(wordBox[i].classList.contains("success")){
 
-};
-const disabled_list3 = () => {
+           wordleInfo.innerHTML = `Done`;
 
-    for(let i = 0; i < answer.length; i++){
+        }
 
-    let piece_disabled3 = document.querySelectorAll(`.piece-container3 input`);
-
-    piece_disabled3[i].setAttribute("disabled" , false);
-
-    }
+     });
 
 };
-const disabled_list4 = () => {
-
-    for(let i = 0; i < answer.length; i++){
-
-    let piece_disabled4 = document.querySelectorAll(`.piece-container4 input`);
-
-    piece_disabled4[i].setAttribute("disabled" , false);
-
-    }
-
-};
-const disabled_list5 = () => {
-
-    for(let i = 0; i < answer.length; i++){
-
-    let piece_disabled5 = document.querySelectorAll(`.piece-container5 input`);
-
-    piece_disabled5[i].setAttribute("disabled" , false);
-
-    }
-
-};
-
-
-function add(){
-
-    for(let i = 0; i < answer.length; i++){
-
-    wordBox1[i].addEventListener("click" , function(){
-
-       wordleInfo.innerHTML = answer[i].info;
-       let wordBox = wordleInfo.setAttribute("id" , `InfoBox${i}`);   
-
-       if(i == 0){
-
-        disabled_list2();
-        disabled_list3();
-        disabled_list4();
-        disabled_list5();
-
-       }else if(i == 1){
-
-        disabled_list1();
-        disabled_list3();
-        disabled_list4();
-        disabled_list5();
-
-       }else if(i == 2){
-
-        disabled_list1();
-        disabled_list2();
-        disabled_list4();
-        disabled_list5();
-
-       }else if(i == 3){
-
-        disabled_list1();
-        disabled_list2();
-        disabled_list3();
-        disabled_list5();
-        
-       }else if(i == 4){
-
-        disabled_list1();
-        disabled_list2();
-        disabled_list3();
-        disabled_list4();
-        
-       }else{}
-
-  });
-
-};
-          
+    
 };
