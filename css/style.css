@@ -77,11 +77,11 @@ a:visited{color:#333;}
 
 #wordle_container #pieceWrap .pieceBox input.green{
 
-    background-color: green;
+    background-color: rgb(0, 147, 0);
 }
 #wordle_container #pieceWrap .pieceBox input.yellow{
 
-    background-color: yellow;
+    background-color: rgb(0, 153, 255);
 }
 #wordle_container #pieceWrap .pieceBox input.gray{
 
@@ -116,8 +116,69 @@ a:visited{color:#333;}
     color:#eaeaea;
 }
 
+#wordle_container #gameover{
+
+    width:100%;
+    height:100%;
+    background-color: rgba(0,0,0,0.8);
+    margin:0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left:0;
+    top:0;
+    z-index:1;
+}
+
+#wordle_container #gameover .over{
+
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color:#fff;
+    padding: 10px 0px;
+}
+
+#wordle_container #gameover span{
+
+    color:#fff;
+    font-weight: 300;
+    letter-spacing: 5px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 0px;
+}
+
+#wordle_container #gameover span em{
+
+    font-weight: 300;
+    display: block;
+    margin:5px;
+}
+
+#wordle_container #gameover .retry{
+
+    width:80px;
+    height:40px;
+    border:none;
+    border-radius: 3px;
+    margin-top:20px;
+    background-color: rgba(225,225,225,0.6);
+    color:#333;
+    text-align: center;
+    font-size: 15px;
+
+}
+
+
 #wordle_container #pieceWrap .pieceBox.close{
 
     display:none;
 
 };
+
